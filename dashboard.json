@@ -1,0 +1,520 @@
+{
+    "ultimaAtualizacao": "10/07/2026 13:19",
+    "kpis": {
+        "faturadoB1": 0,
+        "faturadoB2": 18662,
+        "separadoB1": 0,
+        "separadoB2": 18598
+    },
+    "enderecos": {
+        "b1": 0,
+        "b2": 30
+    },
+    "pallets": {
+        "b1": 0,
+        "b2": 157
+    },
+    "faturadoB1": {
+        "labels": [],
+        "valores": []
+    },
+    "faturadoB2": {
+        "labels": [
+            "TA",
+            "TB"
+        ],
+        "valores": [
+            9842,
+            8820
+        ]
+    },
+    "separacaoB1": {
+        "labels": [],
+        "valores": []
+    },
+    "separacaoB2": {
+        "labels": [
+            "TA",
+            "TB"
+        ],
+        "valores": [
+            10034,
+            8564
+        ]
+    },
+    "palletsB1": {
+        "labels": [],
+        "valores": []
+    },
+    "palletsB2": {
+        "labels": [
+            "TA",
+            "TB"
+        ],
+        "valores": [
+            91,
+            66
+        ]
+    },
+    "tendenciaB1": {
+        "labels": [
+            [
+                "D+2",
+                "08/07"
+            ],
+            [
+                "D+1",
+                "09/07"
+            ],
+            [
+                "D+0",
+                "10/07"
+            ]
+        ],
+        "valores": [
+            716,
+            650,
+            96
+        ]
+    },
+    "tendenciaB2": {
+        "labels": [
+            [
+                "D+2",
+                "08/07"
+            ],
+            [
+                "D+1",
+                "09/07"
+            ],
+            [
+                "D+0",
+                "10/07"
+            ]
+        ],
+        "valores": [
+            63116,
+            3353,
+            1768
+        ]
+    },
+    "pendenciaB1": {
+        "labels": [
+            "D+2",
+            "D+1",
+            "D+0"
+        ],
+        "valores": [
+            716,
+            650,
+            96
+        ]
+    },
+    "pendenciaB2": {
+        "labels": [
+            "D+2",
+            "D+1",
+            "D+0"
+        ],
+        "valores": [
+            36772,
+            3065,
+            1768
+        ]
+    },
+    "atuacaoB1": [],
+    "atuacaoB2": [
+        {
+            "data": "08/07/2026",
+            "dmais": "D+2",
+            "turno": "TA",
+            "almoxarife": "RODRIGUES.LU",
+            "qtde": 8071
+        },
+        {
+            "data": "08/07/2026",
+            "dmais": "D+2",
+            "turno": "TB",
+            "almoxarife": "JEISO.GAMBOA",
+            "qtde": 6202
+        },
+        {
+            "data": "08/07/2026",
+            "dmais": "D+2",
+            "turno": "TB",
+            "almoxarife": "SOLANGE.OLIV",
+            "qtde": 2074
+        },
+        {
+            "data": "08/07/2026",
+            "dmais": "D+2",
+            "turno": "TA",
+            "almoxarife": "GABRIELY.FRE",
+            "qtde": 1963
+        },
+        {
+            "data": "09/07/2026",
+            "dmais": "D+1",
+            "turno": "TB",
+            "almoxarife": "SOLANGE.OLIV",
+            "qtde": 288
+        }
+    ],
+    "resumo_ofensores": {
+        "pecas": 98953,
+        "enderecos": 252,
+        "pallets": 1812
+    },
+    "ofensores": [
+        {
+            "almoxarife": "JEISO.GAMBOA",
+            "turno": "TB",
+            "historico": [
+                {
+                    "data": "01/07/2026",
+                    "pecas": 7788,
+                    "enderecos": 5,
+                    "pallets": 64
+                },
+                {
+                    "data": "03/07/2026",
+                    "pecas": 1119,
+                    "enderecos": 7,
+                    "pallets": 27
+                },
+                {
+                    "data": "07/07/2026",
+                    "pecas": 112,
+                    "enderecos": 1,
+                    "pallets": 7
+                },
+                {
+                    "data": "08/07/2026",
+                    "pecas": 1376,
+                    "enderecos": 6,
+                    "pallets": 13
+                },
+                {
+                    "data": "09/07/2026",
+                    "pecas": 6202,
+                    "enderecos": 11,
+                    "pallets": 45
+                }
+            ],
+            "recorde_pecas": {
+                "data": "01/07/2026",
+                "valor": 7788
+            },
+            "recorde_pallets": {
+                "data": "01/07/2026",
+                "valor": 64
+            }
+        },
+        {
+            "almoxarife": "JOAO.MULLER",
+            "turno": "TA",
+            "historico": [
+                {
+                    "data": "01/07/2026",
+                    "pecas": 973,
+                    "enderecos": 4,
+                    "pallets": 39
+                },
+                {
+                    "data": "02/07/2026",
+                    "pecas": 1936,
+                    "enderecos": 6,
+                    "pallets": 76
+                },
+                {
+                    "data": "03/07/2026",
+                    "pecas": 2307,
+                    "enderecos": 7,
+                    "pallets": 99
+                },
+                {
+                    "data": "06/07/2026",
+                    "pecas": 620,
+                    "enderecos": 6,
+                    "pallets": 23
+                },
+                {
+                    "data": "07/07/2026",
+                    "pecas": 7183,
+                    "enderecos": 2,
+                    "pallets": 96
+                },
+                {
+                    "data": "08/07/2026",
+                    "pecas": 4986,
+                    "enderecos": 4,
+                    "pallets": 217
+                },
+                {
+                    "data": "10/07/2026",
+                    "pecas": 320,
+                    "enderecos": 1,
+                    "pallets": 10
+                }
+            ],
+            "recorde_pecas": {
+                "data": "07/07/2026",
+                "valor": 7183
+            },
+            "recorde_pallets": {
+                "data": "08/07/2026",
+                "valor": 217
+            }
+        },
+        {
+            "almoxarife": "MONIQUE.MACH",
+            "turno": "TA",
+            "historico": [
+                {
+                    "data": "01/07/2026",
+                    "pecas": 5764,
+                    "enderecos": 2,
+                    "pallets": 53
+                },
+                {
+                    "data": "02/07/2026",
+                    "pecas": 1925,
+                    "enderecos": 25,
+                    "pallets": 88
+                },
+                {
+                    "data": "03/07/2026",
+                    "pecas": 822,
+                    "enderecos": 4,
+                    "pallets": 31
+                },
+                {
+                    "data": "06/07/2026",
+                    "pecas": 2104,
+                    "enderecos": 3,
+                    "pallets": 9
+                }
+            ],
+            "recorde_pecas": {
+                "data": "01/07/2026",
+                "valor": 5764
+            },
+            "recorde_pallets": {
+                "data": "02/07/2026",
+                "valor": 88
+            }
+        },
+        {
+            "almoxarife": "SOLANGE.OLIV",
+            "turno": "TB",
+            "historico": [
+                {
+                    "data": "01/07/2026",
+                    "pecas": 2132,
+                    "enderecos": 1,
+                    "pallets": 78
+                },
+                {
+                    "data": "02/07/2026",
+                    "pecas": 4213,
+                    "enderecos": 12,
+                    "pallets": 141
+                },
+                {
+                    "data": "03/07/2026",
+                    "pecas": 1016,
+                    "enderecos": 3,
+                    "pallets": 57
+                },
+                {
+                    "data": "06/07/2026",
+                    "pecas": 558,
+                    "enderecos": 2,
+                    "pallets": 82
+                },
+                {
+                    "data": "07/07/2026",
+                    "pecas": 12709,
+                    "enderecos": 6,
+                    "pallets": 102
+                },
+                {
+                    "data": "08/07/2026",
+                    "pecas": 661,
+                    "enderecos": 2,
+                    "pallets": 27
+                },
+                {
+                    "data": "09/07/2026",
+                    "pecas": 2362,
+                    "enderecos": 6,
+                    "pallets": 21
+                }
+            ],
+            "recorde_pecas": {
+                "data": "07/07/2026",
+                "valor": 12709
+            },
+            "recorde_pallets": {
+                "data": "02/07/2026",
+                "valor": 141
+            }
+        },
+        {
+            "almoxarife": "WILLIAM.LINH",
+            "turno": "TA",
+            "historico": [
+                {
+                    "data": "01/07/2026",
+                    "pecas": 10389,
+                    "enderecos": 12,
+                    "pallets": 99
+                },
+                {
+                    "data": "02/07/2026",
+                    "pecas": 1390,
+                    "enderecos": 33,
+                    "pallets": 42
+                },
+                {
+                    "data": "03/07/2026",
+                    "pecas": 2096,
+                    "enderecos": 46,
+                    "pallets": 93
+                }
+            ],
+            "recorde_pecas": {
+                "data": "01/07/2026",
+                "valor": 10389
+            },
+            "recorde_pallets": {
+                "data": "01/07/2026",
+                "valor": 99
+            }
+        },
+        {
+            "almoxarife": "ERIK.LIMA",
+            "turno": "TB",
+            "historico": [
+                {
+                    "data": "02/07/2026",
+                    "pecas": 1,
+                    "enderecos": 1,
+                    "pallets": 1
+                },
+                {
+                    "data": "06/07/2026",
+                    "pecas": 1,
+                    "enderecos": 1,
+                    "pallets": 1
+                }
+            ],
+            "recorde_pecas": {
+                "data": "02/07/2026",
+                "valor": 1
+            },
+            "recorde_pallets": {
+                "data": "02/07/2026",
+                "valor": 1
+            }
+        },
+        {
+            "almoxarife": "CICERO.SOUZA",
+            "turno": "TB",
+            "historico": [
+                {
+                    "data": "06/07/2026",
+                    "pecas": 80,
+                    "enderecos": 1,
+                    "pallets": 1
+                }
+            ],
+            "recorde_pecas": {
+                "data": "06/07/2026",
+                "valor": 80
+            },
+            "recorde_pallets": {
+                "data": "06/07/2026",
+                "valor": 1
+            }
+        },
+        {
+            "almoxarife": "RODRIGUES.LU",
+            "turno": "TA",
+            "historico": [
+                {
+                    "data": "06/07/2026",
+                    "pecas": 2416,
+                    "enderecos": 5,
+                    "pallets": 13
+                },
+                {
+                    "data": "09/07/2026",
+                    "pecas": 8071,
+                    "enderecos": 12,
+                    "pallets": 82
+                },
+                {
+                    "data": "10/07/2026",
+                    "pecas": 3303,
+                    "enderecos": 11,
+                    "pallets": 41
+                }
+            ],
+            "recorde_pecas": {
+                "data": "09/07/2026",
+                "valor": 8071
+            },
+            "recorde_pallets": {
+                "data": "09/07/2026",
+                "valor": 82
+            }
+        },
+        {
+            "almoxarife": "GABRIELY.FRE",
+            "turno": "TA",
+            "historico": [
+                {
+                    "data": "08/07/2026",
+                    "pecas": 54,
+                    "enderecos": 1,
+                    "pallets": 1
+                },
+                {
+                    "data": "09/07/2026",
+                    "pecas": 1963,
+                    "enderecos": 2,
+                    "pallets": 32
+                }
+            ],
+            "recorde_pecas": {
+                "data": "09/07/2026",
+                "valor": 1963
+            },
+            "recorde_pallets": {
+                "data": "09/07/2026",
+                "valor": 32
+            }
+        },
+        {
+            "almoxarife": "JHON.AVILA",
+            "turno": "TA",
+            "historico": [
+                {
+                    "data": "08/07/2026",
+                    "pecas": 1,
+                    "enderecos": 1,
+                    "pallets": 1
+                }
+            ],
+            "recorde_pecas": {
+                "data": "08/07/2026",
+                "valor": 1
+            },
+            "recorde_pallets": {
+                "data": "08/07/2026",
+                "valor": 1
+            }
+        }
+    ]
+}
