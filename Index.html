@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Ressuprimento</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+<div class="container-fluid">
+
+    <div class="row">
+
+        <!-- MENU -->
+
+        <div class="col-md-2 sidebar">
+
+            <div class="profile text-center">
+
+<img
+    src="Img/img.logo-britania.png"
+    width="140"
+    class="img-fluid mb-3"
+>
+
+                <h4 class="mt-3">Ressuprimento Diário</h4>
+
+            </div>
+
+<a id="menuHome"
+   href="#"
+   onclick="mostrarPagina('home')">
+
+    <i class="bi bi-house"></i>
+    Home
+
+</a>
+
+<a id="menuIndicadores"
+   href="#"
+   onclick="mostrarPagina('indicadores')">
+
+    <i class="bi bi-bar-chart"></i>
+    Indicadores
+
+</a>
+
+<a id="menuOfensor"
+   href="#"
+   onclick="mostrarPagina('ofensor')">
+
+    <i class="bi bi-exclamation-triangle"></i>
+    Ofensor Diário
+
+</a>
+
+        </div>
+
+        <!-- CONTEÚDO -->
+
+        <div class="col-md-10 p-4">
+
+            <div class="cabecalho-dashboard">
+
+    <h1 class="titulo-dashboard">
+        📊 Ressuprimento Diário
+    </h1>
+
+<div class="area-atualizacao">
+
+    <div class="card-atualizacao">
+
+        🕒 Atualizado em:
+        <strong id="ultimaAtualizacao"></strong>
+
+        <button
+            class="btn-camera"
+            onclick="capturarDashboard()"
+            title="Capturar Dashboard">
+            📸
+        </button>
+
+    </div>
+
+</div>
+
+<!-- HOME -->
+
+<div id="paginaHome" style="display:none;">
+
+    <div class="titulo-secao">
+        🏠 Home
+    </div>
+
+    <div class="card kpi-card p-4">
+
+        <div class="card-body">
+
+            <h3 class="mb-4">
+                🔄 Atualização de Dados
+            </h3>
+
+            <div class="mb-4">
+
+                <label class="form-label fw-bold">
+                    📅 Data de Referência
+                </label>
+
+                <input
+                    type="date"
+                    id="dataReferencia"
+                    class="form-control"
+                >
+
+            </div>
+
+            <div class="mb-4">
+
+                <label class="form-label fw-bold">
+                    📄 Arquivo Base
+                </label>
+
+                <input
+                    type="text"
+                    class="form-control"
+                    value="Dash_Ressupre.xlsm"
+                    readonly
+                >
+
+            </div>
+
+<button
+    class="btn btn-light btn-lg"
+    id="btnAtualizarDashboard"
+    onclick="atualizarDashboard()"
+>
+    🔄 Atualizar Dashboard
+</button>
+
+<div class="mt-4">
+
+    <h4>Status da Atualização</h4>
+
+    <div
+        id="statusAtualizacao"
+        class="log-atualizacao"
+    >
+
+        Aguardando execução...
+
+    </div>
+
+</div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- INDICADORES -->
+
+<div id="paginaIndicadores">
+
+
+<div class="row mb-4">
+
+    <div class="col-md-3">
+
+        <div class="card card-resumo bg-danger">
+
+            <div class="card-body text-center">
+
+                <h5>🚨 Maior Atraso B1</h5>
+
+                <h2 id="maiorAtrasoB1">-</h2>
+
+                <small id="maiorAtrasoB1Qtde"></small>
+
+                <br>
+                <span id="criticidadeB1" class="fw-bold"></span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-3">
+
+        <div class="card card-resumo bg-warning text-dark">
+
+            <div class="card-body text-center">
+
+                <h5>📦 Maior Volume B1</h5>
+
+                <h2 id="maiorVolumeB1">-</h2>
+
+                <small id="maiorVolumeB1Qtde"></small>
+
+                <br>
+                <span id="criticidadeVolumeB1"></span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-3">
+
+        <div class="card card-resumo bg-danger">
+
+            <div class="card-body text-center">
+
+                <h5>🚨 Maior Atraso B2</h5>
+
+                <h2 id="maiorAtrasoB2">-</h2>
+
+                <small id="maiorAtrasoB2Qtde"></small>
+
+                <br>
+                <span id="criticidadeB2" class="fw-bold"></span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-3">
+
+        <div class="card card-resumo bg-warning text-dark">
+            <div class="card-body text-center">
+
+                <h5>📦 Maior Volume B2</h5>
+
+                <h2 id="maiorVolumeB2">-</h2>
+
+                <small id="maiorVolumeB2Qtde"></small>
+
+                <br>
+                <span id="criticidadeVolumeB2"></span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!-- KPIs -->
+
+<div class="row mb-4">
+
+    <div class="col-md-3">
+        <div class="card kpi-card card-resumo p-3">
+            <div class="card-body text-center">
+                <h5>✅ Total Faturado B1</h5>
+                <h2 id="faturadoB1">0</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card kpi-card card-resumo p-3">
+            <div class="card-body text-center">
+                <h5>✅ Total Faturado B2</h5>
+                <h2 id="faturadoB2">0</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card kpi-card card-resumo p-3">
+            <div class="card-body text-center">
+                <h5>📦 Total Separado B1</h5>
+                <h2 id="separadoB1">0</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card kpi-card card-resumo p-3">
+            <div class="card-body text-center">
+                <h5>📦 Total Separado B2</h5>
+                <h2 id="separadoB2">0</h2>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="row mb-4">
+
+    <div class="col-md-3">
+        <div class="card kpi-card card-resumo p-3">
+            <div class="card-body text-center">
+                <h5>🚚 Pallets B1</h5>
+                <h2 id="palletsB1">0</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card kpi-card card-resumo p-3">
+            <div class="card-body text-center">
+                <h5>🚚 Pallets B2</h5>
+                <h2 id="palletsB2">0</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card kpi-card card-resumo p-3">
+            <div class="card-body text-center">
+                <h5>📍 Endereços B1</h5>
+                <h2 id="enderecoB1">0</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card kpi-card card-resumo p-3">
+            <div class="card-body text-center">
+                <h5>📍 Endereços B2</h5>
+                <h2 id="enderecoB2">0</h2>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- OPERAÇÃO B1 -->
+
+<div class="titulo-secao">
+    ⚙️ Operação B1
+</div>
+
+<div class="row">
+
+    <div class="col-md-6 mb-4">
+
+        <div class="card card-custom grafico-status p-4">
+
+            <h3 class="titulo-grafico">
+    ✅ Faturado B1
+</h3>
+
+            <canvas id="graficoFaturadoB1"></canvas>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-6 mb-4">
+
+        <div class="card card-custom grafico-status p-4">
+
+
+           <h3 class="titulo-grafico">
+    📋 Separação B1
+</h3>
+
+            <canvas id="graficoSeparacaoB1"></canvas>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="row">
+
+    <div class="col-md-6 mb-4">
+
+        <div class="card card-custom grafico-status p-4">
+
+            <h3 class="titulo-grafico">
+    🚚 Pallets B1
+</h3>
+
+            <canvas id="graficoPalletsB1"></canvas>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-6 mb-4">
+
+        <div class="card card-custom grafico-status p-4">
+
+           <h3 class="titulo-grafico">
+    📦 Separação Pendente
+</h3>
+
+            <canvas id="graficoPendenciaB1"></canvas>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- OPERAÇÃO CD2 -->
+
+<div class="titulo-secao">
+    ⚙️ Operação B2
+</div>
+
+<div class="row">
+
+    <div class="col-md-6 mb-4">
+
+        <div class="card card-custom grafico-status p-4">
+
+            <h3 class="titulo-grafico">
+    ✅ Faturado B2
+</h3>
+
+            <canvas id="graficoFaturadoB2"></canvas>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-6 mb-4">
+
+        <div class="card card-custom grafico-status p-4">
+
+            <h3 class="titulo-grafico">
+    📋 Separação B2
+</h3>
+
+            <canvas id="graficoSeparacaoB2"></canvas>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="row">
+
+    <div class="col-md-6 mb-4">
+
+        <div class="card card-custom grafico-status p-4">
+
+            <h3 class="titulo-grafico">
+    🚚 Pallets B2
+</h3>
+
+            <canvas id="graficoPalletsB2"></canvas>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-6 mb-4">
+
+        <div class="card card-custom grafico-status p-4">
+
+            <h3 class="titulo-grafico">
+     📦 Separação Pendente
+</h3>
+
+            <canvas id="graficoPendenciaB2"></canvas>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- STATUS ATUAL -->
+
+<div class="titulo-secao">
+   📊 Solicitações Mensais
+</div>
+
+<div class="row">
+
+    <div class="col-md-6 mb-4">
+
+        <div class="card card-custom grafico-status p-4">
+
+            <h3 class="titulo-grafico">
+    📈 Solicitação Mensal B1
+</h3>
+
+            <canvas id="graficoTendenciaB1"></canvas>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-6 mb-4">
+
+        <div class="card card-custom grafico-status p-4">
+
+            <h3 class="titulo-grafico">
+    📈 Solicitação Mensal B2
+</h3>
+
+            <canvas id="graficoTendenciaB2"></canvas>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="titulo-secao">
+   👥 Documentos Separados B1
+</div>
+
+<div class="card card-custom p-3 mb-4">
+
+    <div class="tabela-scroll">
+
+        <table class="table table-striped table-hover">
+
+        <thead>
+
+            <tr>
+
+<th>Data</th>
+<th>D+</th>
+<th>Status</th>
+<th>Turno</th>
+<th>Almoxarife</th>
+<th>Qtde</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody id="tabelaAtuacaoB1">
+
+        </tbody>
+
+    </table>
+
+      </div>
+
+</div>
+
+<div class="titulo-secao">
+   👥 Documentos Separados B2
+</div>
+
+<div class="card card-custom p-3">
+
+    <div class="tabela-scroll">
+
+        <table class="table table-striped table-hover">
+
+        <thead>
+
+            <tr>
+
+<th>Data</th>
+<th>D+</th>
+<th>Status</th>
+<th>Turno</th>
+<th>Almoxarife</th>
+<th>Qtde</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody id="tabelaAtuacaoB2">
+
+        </tbody>
+
+    </table>
+
+    </div>
+
+</div>
+
+</div>
+
+<!-- OFENSOR DIÁRIO -->
+
+<div id="paginaOfensor" style="display:none;">
+
+    <div class="titulo-secao">
+        ⚠️ Mensal
+    </div>
+
+    <!-- KPI'S -->
+
+    <div class="row mb-4">
+
+        <div class="col-md-4">
+
+            <div class="card kpi-card card-resumo p-3">
+
+                <div class="card-body text-center">
+
+                    <h5>📦 Total Peças</h5>
+
+                    <h2 id="totalPecasOfensor">0</h2>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-4">
+
+            <div class="card kpi-card card-resumo p-3">
+
+                <div class="card-body text-center">
+
+                    <h5>📍 Endereços Mov.</h5>
+
+                    <h2 id="totalEnderecosOfensor">0</h2>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-4">
+
+            <div class="card kpi-card card-resumo p-3">
+
+                <div class="card-body text-center">
+
+                    <h5>🚚 Total Pallets</h5>
+
+                    <h2 id="totalPalletsOfensor">0</h2>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+<!-- CONTROLES DIA A DIA ALMOXARIFE -->
+
+<div class="card card-custom mb-4">
+
+    <div class="card-body">
+
+        <div
+            style="
+                display:flex;
+                justify-content:space-between;
+                align-items:flex-end;
+                gap:25px;
+                flex-wrap:wrap;
+            "
+        >
+
+            <!-- VISUALIZAÇÃO -->
+
+            <div>
+
+                <label
+                    style="
+                        display:block;
+                        font-weight:bold;
+                        margin-bottom:6px;
+                    "
+                >
+                    Visualização
+                </label>
+
+                <select
+                    id="filtroOfensor"
+                    style="
+                        padding:10px 18px;
+                        border-radius:8px;
+                        border:1px solid #ccc;
+                        font-size:15px;
+                        font-weight:bold;
+                        min-width:250px;
+                    "
+                >
+
+                    <option value="pecas">
+                        📦 Peças Movimentadas
+                    </option>
+
+                    <option value="enderecos">
+                        📍 Endereços Movimentados
+                    </option>
+
+                    <option value="pallets">
+                        🚚 Pallets Movimentados
+                    </option>
+
+                </select>
+
+            </div>
+
+            <!-- MÊS -->
+
+            <div>
+
+                <label
+                    style="
+                        display:block;
+                        font-weight:bold;
+                        margin-bottom:6px;
+                    "
+                >
+                    Mês
+                </label>
+
+                <select
+                    id="mesOfensor"
+                    style="
+                        padding:10px 18px;
+                        border-radius:8px;
+                        border:1px solid #ccc;
+                        font-size:15px;
+                        font-weight:bold;
+                        min-width:180px;
+                    "
+                >
+
+                    <option value="jan">
+                        Janeiro
+                    </option>
+
+                    <option value="fev">
+                        Fevereiro
+                    </option>
+
+                    <option value="mar">
+                        Março
+                    </option>
+
+                    <option value="abr">
+                        Abril
+                    </option>
+
+                    <option value="mai">
+                        Maio
+                    </option>
+
+                    <option value="jun">
+                        Junho
+                    </option>
+
+                    <option value="jul" selected>
+                        Julho
+                    </option>
+
+                    <option value="ago">
+                        Agosto
+                    </option>
+
+                    <option value="set">
+                        Setembro
+                    </option>
+
+                    <option value="out">
+                        Outubro
+                    </option>
+
+                    <option value="nov">
+                        Novembro
+                    </option>
+
+                    <option value="dez">
+                        Dezembro
+                    </option>
+
+                </select>
+
+            </div>
+
+            <!-- BOTÃO -->
+
+            <div>
+
+                <button
+                    id="btnAtualizarOfensor"
+                    class="btn btn-primary"
+                    style="
+                        font-weight:bold;
+                        padding:10px 18px;
+                    "
+                >
+
+                    🔄 Atualizar
+
+                </button>
+
+            </div>
+
+            <!-- STATUS -->
+
+            <div
+                style="
+                    text-align:center;
+                    min-width:180px;
+                "
+            >
+
+                <div
+                    style="
+                        font-weight:bold;
+                        margin-bottom:6px;
+                    "
+                >
+                    Status
+                </div>
+
+                <div
+                    id="statusOfensor"
+                    style="
+                        display:inline-block;
+                        background:#198754;
+                        color:white;
+                        padding:8px 14px;
+                        border-radius:20px;
+                        font-size:14px;
+                        font-weight:bold;
+                        min-width:140px;
+                    "
+                >
+
+                    ✅ Atualizado
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- CARDS DINÂMICOS -->
+
+<div id="cardsOfensores" class="row">
+
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+
+<script src="js/script.js"></script>
+
+</body>
+</html>
